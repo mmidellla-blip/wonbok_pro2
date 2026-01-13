@@ -1,0 +1,8 @@
+{
+  "name": " 원복프로 (Wonbok Pro) - 인테리어 원상복구 전문가",
+  "description": "상가, 사무실, 프랜차이즈 원상복구 및 철거 전문 브랜드 원복프로입니다. \n정직한 견적과 프로의 실력으로 보답합니다.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
