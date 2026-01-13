@@ -54,45 +54,45 @@ const Hero: React.FC = () => {
       <div className="container mx-auto relative z-20 h-full flex flex-col">
         <div className="flex-1 flex items-center">
           <div className="max-w-3xl px-4 md:px-0 w-full">
-            <div className="overflow-hidden mb-6">
-              <span className="inline-block px-4 py-1.5 bg-primary text-white text-[10px] font-black rounded-full shadow-lg tracking-[0.3em] uppercase animate-in slide-in-from-bottom-full duration-700">
+            <div className="overflow-hidden mb-5 md:mb-6">
+              <span className="inline-block px-3.5 py-1.5 bg-primary text-white text-[0.6875rem] font-semibold rounded-full shadow-md tracking-[0.05em] uppercase animate-in slide-in-from-bottom-full duration-700">
                 Premium Restoration Partner
               </span>
             </div>
             
-            <div className="mb-8 space-y-2">
-               <h2 className="text-xl md:text-2xl font-medium text-white/70 tracking-tight animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
+            <div className="mb-6 md:mb-8 space-y-1.5 md:space-y-2">
+               <h2 className="text-lg md:text-xl font-medium text-white/80 tracking-tight animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
                  {slides[currentSlide].title1}
                </h2>
-               <h1 className="text-4xl md:text-6xl font-black text-white leading-tight tracking-tighter animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200">
+               <h1 className="text-[2.5rem] md:text-[2.75rem] lg:text-[3rem] font-black text-white leading-[1.2] tracking-[-0.03em] animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200">
                  {slides[currentSlide].title2}
                </h1>
             </div>
             
-            <p className="text-base md:text-lg text-white/90 font-medium leading-relaxed mb-12 max-w-xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 whitespace-pre-line opacity-80">
+            <p className="text-[0.9375rem] md:text-base text-white/85 font-medium leading-relaxed mb-10 md:mb-12 max-w-xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 whitespace-pre-line">
               {slides[currentSlide].desc}
             </p>
             
-            <div className="flex flex-wrap gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
+            <div className="flex flex-wrap gap-3 md:gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
               <button 
                 onClick={() => document.getElementById('무료견적')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-8 py-4 bg-primary text-white font-black text-lg rounded-xl hover:bg-primary-strong transition-all shadow-xl shadow-primary/40 active:scale-95 flex items-center gap-3 group"
+                className="px-6 md:px-8 py-3 md:py-3.5 bg-primary text-white font-semibold text-base md:text-lg rounded-lg hover:bg-primary-strong transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] flex items-center gap-2.5 md:gap-3 group"
               >
                 상담 문의하기
-                <i className="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+                <i className="fas fa-arrow-right text-sm group-hover:translate-x-0.5 transition-transform duration-200"></i>
               </button>
             </div>
           </div>
         </div>
 
         {/* Slide indicators */}
-        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-30 flex gap-4">
+        <div className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 z-30 flex gap-3 md:gap-4">
           {slides.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}
-              className={`h-1.5 rounded-full transition-all duration-700 ${
-                idx === currentSlide ? 'bg-primary w-12' : 'bg-white/20 w-4 hover:bg-white/40'
+              className={`h-1 rounded-full transition-all duration-300 ${
+                idx === currentSlide ? 'bg-white w-10 md:w-12' : 'bg-white/30 w-2 md:w-3 hover:bg-white/50'
               }`}
               aria-label={`${idx + 1}번 슬라이드`}
             />

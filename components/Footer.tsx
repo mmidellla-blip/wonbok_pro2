@@ -23,24 +23,6 @@ const Footer: React.FC = () => {
             </p>
             
             {/* Social Icons */}
-            <div className="flex gap-2 md:gap-3 pt-1">
-              {[
-                { icon: 'blogger-b', link: 'https://blog.naver.com/jsjmyoo77', label: 'Blog' },
-                { icon: 'instagram', link: '#', label: 'Instagram' },
-                { icon: 'youtube', link: '#', label: 'Youtube' }
-              ].map(sns => (
-                <a 
-                  key={sns.icon} 
-                  href={sns.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  aria-label={sns.label}
-                  className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-primary hover:bg-primary transition-all text-base md:text-lg"
-                >
-                  <i className={`fab fa-${sns.icon}`}></i>
-                </a>
-              ))}
-            </div>
           </div>
           
           {/* 2. Contact Info Section */}
@@ -71,13 +53,8 @@ const Footer: React.FC = () => {
         {/* 3. Bottom Bar */}
         <div className="border-t border-white/10 mt-6 md:mt-8 pt-4 md:pt-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 md:gap-4">
-            <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 md:gap-x-6 gap-y-1">
-              <a href="#" className="text-white/40 hover:text-white text-[10px] md:text-[11px] font-black tracking-widest uppercase transition-colors">Terms</a>
-              <a href="#" className="text-white/40 hover:text-white text-[10px] md:text-[11px] font-black tracking-widest uppercase transition-colors">Privacy</a>
-              <a href="#" className="text-white/40 hover:text-white text-[10px] md:text-[11px] font-black tracking-widest uppercase transition-colors">Legal</a>
-            </div>
             <p className="text-white/30 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-center sm:text-right">
-              © 2024 WONBOK PRO. ALL RIGHTS RESERVED.
+              © 2026 WONBOK PRO. ALL RIGHTS RESERVED.
             </p>
           </div>
         </div>

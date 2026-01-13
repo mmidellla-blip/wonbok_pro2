@@ -42,38 +42,38 @@ function App() {
         <Hero />
         
         {/* Value Proposition */}
-        <section id="소개" className="py-20 md:py-32 bg-white scroll-mt-20">
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center mb-16 md:mb-24">
-              <span className="text-primary font-black text-[10px] mb-6 block tracking-[0.4em] uppercase">Premium Solution</span>
+        <section id="소개" className="py-16 md:py-20 lg:py-24 bg-white scroll-mt-20">
+          <div className="container mx-auto px-6 md:px-8 lg:px-12">
+            <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
+              <span className="text-primary font-semibold text-[0.6875rem] mb-3 md:mb-4 block tracking-[0.05em] uppercase">Premium Solution</span>
               
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-neutral-strong mb-10 tracking-tighter leading-tight">
+              <h2 className="text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] font-black text-neutral-strong mb-6 md:mb-8 tracking-[-0.03em] leading-[1.2]">
                 공간 구조를 읽는 전문가가 완성하는 <br />
-                <span className="text-primary mt-3 block">
+                <span className="text-primary mt-2 md:mt-3 block">
                   [ <span className="text-neutral-strong">원복·철거·리모델링 통합 솔루션</span> ]
                 </span>
               </h2>
               
               <div className="max-w-3xl mx-auto">
-                <p className="text-base md:text-lg text-neutral-text font-medium leading-relaxed opacity-90 mb-6">
+                <p className="text-[0.9375rem] md:text-base text-neutral-text font-medium leading-relaxed mb-4 md:mb-6">
                   원복 프로는 다년간 인테리어 건축 현장을 직접 운영해온 <br className="hidden md:block" />
-                  <span className="text-primary font-bold">㈜인주씨앤아이</span> 만의 원상복구 브랜드입니다.
+                  <span className="text-primary font-semibold">㈜인주씨앤아이</span> 만의 원상복구 브랜드입니다.
                 </p>
-                <p className="text-base md:text-lg text-neutral-text font-medium leading-relaxed opacity-70">
+                <p className="text-[0.9375rem] md:text-base text-neutral-text/70 font-medium leading-relaxed">
                   단순 철거를 넘어 원복 기준 설계부터 시공, 마감까지 <br className="hidden md:block" />
                   공정을 하나로 묶어 책임지는 시스템으로 운영됩니다.
                 </p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
               {whyChooseUs.map((item, idx) => (
-                <div key={idx} className="bg-neutral-surface/30 p-8 rounded-3xl border border-primary-border/40 transition-all duration-500 hover:border-primary group hover:bg-white hover:shadow-xl flex flex-col items-center text-center">
-                  <div className="w-14 h-14 bg-white border border-primary-border/60 flex items-center justify-center text-primary text-xl mb-6 rounded-2xl group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+                <div key={idx} className="bg-neutral-surface/50 p-6 md:p-8 rounded-xl md:rounded-2xl border border-primary-border/30 transition-all duration-200 hover:border-primary/40 group hover:bg-white hover:shadow-md flex flex-col items-center text-center">
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-white border border-primary-border/40 flex items-center justify-center text-primary text-lg md:text-xl mb-4 md:mb-6 rounded-lg md:rounded-xl group-hover:bg-primary group-hover:text-white transition-all duration-200 shadow-sm">
                     <i className={`fas ${item.icon}`}></i>
                   </div>
-                  <h4 className="text-neutral-strong font-black text-xl mb-3 tracking-tighter">{item.title}</h4>
-                  <p className="text-neutral-text text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-100 transition-opacity">{item.desc}</p>
+                  <h4 className="text-neutral-strong font-bold text-lg md:text-xl mb-2 md:mb-3 tracking-[-0.02em]">{item.title}</h4>
+                  <p className="text-neutral-text/70 text-sm md:text-base font-medium leading-relaxed group-hover:text-neutral-text transition-colors duration-200">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -82,13 +82,13 @@ function App() {
 
         <Services />
         
-        <section id="포트폴리오" className="bg-white py-20 md:py-32 scroll-mt-20 border-y border-primary-border/40">
-          <div className="container mx-auto px-6">
-             <div className="max-w-3xl mx-auto text-center mb-16">
-                <span className="text-primary font-black text-[10px] mb-6 block tracking-[0.4em] uppercase">Successful Projects</span>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-neutral-strong mb-6 tracking-tighter">시공 사례</h2>
-                <p className="text-neutral-text font-bold text-base md:text-lg opacity-70 mb-8">원복의 차이는 현장에서 드러납니다.</p>
-                <div className="w-16 h-0.5 bg-primary/20 mx-auto"></div>
+        <section id="포트폴리오" className="bg-white py-16 md:py-20 lg:py-24 scroll-mt-20 border-y border-primary-border/30">
+          <div className="container mx-auto px-6 md:px-8 lg:px-12">
+             <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+                <span className="text-primary font-semibold text-[0.6875rem] mb-3 md:mb-4 block tracking-[0.05em] uppercase">Successful Projects</span>
+                <h2 className="text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] font-black text-neutral-strong mb-4 md:mb-6 tracking-[-0.03em]">시공 사례</h2>
+                <p className="text-neutral-text/70 font-semibold text-[0.9375rem] md:text-base mb-6 md:mb-8">원복의 차이는 현장에서 드러납니다.</p>
+                <div className="w-12 md:w-16 h-[1px] bg-primary/20 mx-auto"></div>
              </div>
              <div className="max-w-6xl mx-auto">
                 <PortfolioSlider />

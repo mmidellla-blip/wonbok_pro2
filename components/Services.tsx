@@ -6,23 +6,23 @@ const ServiceCard: React.FC<{
   index: number;
 }> = ({ title, items, index }) => (
   <div 
-    className="group p-8 bg-white rounded-3xl border border-primary-border/60 hover:border-primary/40 transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-2"
+    className="group p-6 md:p-8 bg-white rounded-xl md:rounded-2xl border border-primary-border/40 hover:border-primary/30 transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-1"
   >
-    <div className="flex flex-col gap-6 mb-8">
-      <div className="w-14 h-14 bg-neutral-surface text-primary border border-primary-border/40 flex items-center justify-center rounded-2xl font-black text-xl group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+    <div className="flex flex-col gap-4 md:gap-6 mb-6 md:mb-8">
+      <div className="w-12 h-12 md:w-14 md:h-14 bg-neutral-surface text-primary border border-primary-border/30 flex items-center justify-center rounded-lg md:rounded-xl font-bold text-lg md:text-xl group-hover:bg-primary group-hover:text-white transition-all duration-200 shadow-sm">
         0{index + 1}
       </div>
-      <h3 className="text-xl md:text-2xl font-black text-neutral-strong tracking-tighter leading-tight group-hover:text-primary transition-colors">
+      <h3 className="text-lg md:text-xl font-bold text-neutral-strong tracking-[-0.02em] leading-tight group-hover:text-primary transition-colors duration-200">
         {title}
       </h3>
     </div>
-    <ul className="space-y-4">
+    <ul className="space-y-3 md:space-y-4">
       {items.map((item, idx) => (
-        <li key={idx} className="flex items-start gap-4">
-          <div className="w-5 h-5 flex-shrink-0 flex items-center justify-center text-primary/60 group-hover:text-primary transition-colors">
-            <i className="fas fa-check text-[14px]"></i>
+        <li key={idx} className="flex items-start gap-3 md:gap-4">
+          <div className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0 flex items-center justify-center text-primary/50 group-hover:text-primary transition-colors duration-200 mt-0.5">
+            <i className="fas fa-check text-xs md:text-sm"></i>
           </div>
-          <span className="text-neutral-text font-bold text-base leading-relaxed opacity-70 group-hover:opacity-100 transition-opacity">
+          <span className="text-neutral-text/70 font-medium text-sm md:text-base leading-relaxed group-hover:text-neutral-text transition-colors duration-200">
             {item}
           </span>
         </li>
@@ -64,12 +64,12 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="사업분야" className="py-20 md:py-32 bg-neutral-surface scroll-mt-20">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+    <section id="사업분야" className="py-16 md:py-20 lg:py-24 bg-neutral-surface scroll-mt-20">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12">
+        <div className="grid lg:grid-cols-12 gap-8 md:gap-10 lg:gap-12 items-start">
           <div className="lg:col-span-5 lg:sticky lg:top-28">
-            <span className="text-primary font-black text-[10px] mb-6 block tracking-[0.4em] uppercase">Expertise Core</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-neutral-strong leading-tight mb-8 tracking-tighter">
+            <span className="text-primary font-semibold text-[0.6875rem] mb-3 md:mb-4 block tracking-[0.05em] uppercase">Expertise Core</span>
+            <h2 className="text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] font-black text-neutral-strong leading-[1.2] mb-6 md:mb-8 tracking-[-0.03em]">
               20년 경력 베테랑, <br />
               원복프로가 제안하는 <br />
               실패없는 <br />
@@ -77,28 +77,28 @@ const Services: React.FC = () => {
                 [ <span className="text-neutral-strong">공간 정리 솔루션</span> ]
               </span>
             </h2>
-            <div className="space-y-4 mb-12">
-              <p className="text-base md:text-lg text-neutral-text font-bold leading-relaxed opacity-90 tracking-tight">
+            <div className="space-y-3 md:space-y-4 mb-10 md:mb-12">
+              <p className="text-[0.9375rem] md:text-base text-neutral-text font-semibold leading-relaxed tracking-[-0.01em]">
                 비우는 것이 곧 채우는 것입니다.
               </p>
-              <p className="text-base md:text-lg text-neutral-text font-medium leading-relaxed opacity-70 tracking-tight">
+              <p className="text-[0.9375rem] md:text-base text-neutral-text/70 font-medium leading-relaxed tracking-[-0.01em]">
                 원상복구의 정석 '원복프로'가 <br />
                 당신의 공간을 책임집니다.
               </p>
             </div>
-            <div className="inline-flex items-center gap-6 p-8 bg-white rounded-3xl border border-primary-border/60 shadow-lg">
-              <div className="w-16 h-16 bg-primary-strong text-white flex items-center justify-center rounded-2xl text-2xl shadow-lg">
+            <div className="inline-flex items-center gap-4 md:gap-6 p-6 md:p-8 bg-white rounded-xl md:rounded-2xl border border-primary-border/40 shadow-md">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-primary-strong text-white flex items-center justify-center rounded-lg md:rounded-xl text-xl md:text-2xl shadow-md">
                 <i className="fas fa-certificate"></i>
               </div>
               <div>
-                <p className="text-neutral-strong font-black text-lg tracking-tighter">정식 면허 보유 법인</p>
-                <p className="text-neutral-text text-[10px] font-bold opacity-50 uppercase tracking-widest">Engineering License 2024</p>
+                <p className="text-neutral-strong font-bold text-base md:text-lg tracking-[-0.02em]">정식 면허 보유 법인</p>
+                <p className="text-neutral-text/50 text-[0.6875rem] font-semibold uppercase tracking-[0.1em]">Engineering License 2024</p>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-7">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
               {services.map((service, index) => (
                 <ServiceCard 
                   key={index} 

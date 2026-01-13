@@ -22,14 +22,22 @@ const QuickMenu: React.FC = () => {
       name: '카톡상담',
       img: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg',
       color: 'bg-[#FEE500]',
-      link: 'https://pf.kakao.com', 
+      link: 'http://pf.kakao.com/_BuDxon/chat', 
     },
     {
       name: '블로그',
       icon: 'fa-blogger-b',
       color: 'bg-primary',
-      link: 'https://blog.naver.com',
+      link: 'https://blog.naver.com/jsjmyoo77',
+    },
+    {
+      name: '인스타그램',
+      icon: 'fa-instagram',
+      color: 'bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400',
+      link: 'https://www.instagram.com/15designhaus/',
+      iconSize: 'text-2xl',
     }
+
   ];
 
   return (
@@ -38,9 +46,13 @@ const QuickMenu: React.FC = () => {
         const Content = (
           <>
             {menu.img ? (
-              <img src={menu.img} alt="" className="w-7 h-7 object-contain" />
+              <img 
+                src={menu.img} 
+                alt="" 
+                className="w-7 h-7 object-contain" 
+              />
             ) : (
-              <i className={`fab ${menu.icon} text-white text-xl`}></i>
+              <i className={`fab ${menu.icon} text-white ${menu.iconSize || 'text-xl'}`}></i>
             )}
             <span className="absolute right-full mr-4 px-3 py-1.5 bg-neutral-strong text-white text-[11px] font-bold rounded-lg shadow-xl opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all whitespace-nowrap pointer-events-none hidden md:block">
               {menu.name}

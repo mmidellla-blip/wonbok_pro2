@@ -1,7 +1,111 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 
 const InquiryForm: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    address: '',
+    phone1: '',
+    phone2: '',
+    phone3: '',
+    email: '',
+    industry: '',
+    constructionDate: '',
+    budget: '',
+    visitDate: '',
+    details: '',
+    agree: false
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({ ...prev, agree: e.target.checked }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // 필수 항목 검증
+    if (!formData.name || !formData.address || !formData.phone1 || !formData.phone2 || !formData.phone3 || 
+        !formData.email || !formData.industry || !formData.constructionDate || !formData.budget || 
+        !formData.visitDate || !formData.details) {
+      alert('모든 필수 항목을 입력해주세요.');
+      return;
+    }
+
+    if (!formData.agree) {
+      alert('개인정보 수집 및 이용에 동의해주세요.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // 카카오톡 메시지 템플릿 생성
+    const phone = `${formData.phone1}-${formData.phone2}-${formData.phone3}`;
+    const message = `[원복프로 견적 신청]
+
+📋 회사명/담당자: ${formData.name}
+📍 현장 주소: ${formData.address}
+📞 연락처: ${phone}
+📧 이메일: ${formData.email}
+🏢 업종 및 평수: ${formData.industry}
+📅 공사 희망일: ${formData.constructionDate}
+💰 예산: ${formData.budget}만원
+📆 방문 견적 희망일: ${formData.visitDate}
+
+📝 상세 설명:
+${formData.details}
+
+━━━━━━━━━━━━━━━━━━━━
+빠른 시일 내에 연락드리겠습니다.
+감사합니다.`;
+
+    try {
+      // 클립보드에 메시지 복사
+      await navigator.clipboard.writeText(message);
+      
+      // 카카오톡 채널 채팅으로 이동
+      const kakaoChatLink = 'http://pf.kakao.com/_BuDxon/chat';
+      
+      // 카카오톡 채널 채팅으로 새 창 열기
+      window.open(kakaoChatLink, '_blank');
+
+      // 성공 메시지 표시
+      alert('견적 신청 내용이 클립보드에 복사되었습니다.\n카카오톡 채널로 이동하여 붙여넣기 해주세요.');
+      
+      // 폼 초기화
+      setFormData({
+        name: '',
+        address: '',
+        phone1: '',
+        phone2: '',
+        phone3: '',
+        email: '',
+        industry: '',
+        constructionDate: '',
+        budget: '',
+        visitDate: '',
+        details: '',
+        agree: false
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      // 클립보드 복사 실패 시에도 카카오톡 채팅 링크는 열기
+      window.open('http://pf.kakao.com/_BuDxon/chat', '_blank');
+      
+      // 폴백: 텍스트 영역에 메시지 표시하여 수동 복사 가능하게
+      const fallbackMessage = `견적 신청 내용을 복사해서 카카오톡으로 보내주세요:\n\n${message}`;
+      alert(fallbackMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="무료견적" className="bg-primary py-16 md:py-24 lg:py-32 scroll-mt-20 relative overflow-hidden">
       {/* Decorative Watermark */}
@@ -80,7 +184,7 @@ const InquiryForm: React.FC = () => {
           {/* 2. Main Form Column: Refined Spacing for Touch Accessibility */}
           <div className="w-full lg:w-[58%]">
             <div className="bg-white p-6 sm:p-8 md:p-12 lg:p-14 rounded-[2rem] md:rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,40,40,0.4)] border border-neutral-border/10">
-              <form className="space-y-6 md:space-y-8" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6 md:space-y-8" onSubmit={handleSubmit}>
                 
                 {/* Field Group 1: 2-Cols on Tablet/Desktop, 1-Col on Mobile */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
@@ -88,13 +192,29 @@ const InquiryForm: React.FC = () => {
                     <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       회사명 / 담당자 성함 <span className="text-red-500">*</span>
                     </label>
-                    <input type="text" className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm h-[56px]" placeholder="이름을 입력해주세요" />
+                    <input 
+                      type="text" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm h-[56px]" 
+                      placeholder="이름을 입력해주세요" 
+                    />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       현장 주소 <span className="text-red-500">*</span>
                     </label>
-                    <input type="text" className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm h-[56px]" placeholder="시공 주소를 입력해주세요" />
+                    <input 
+                      type="text" 
+                      name="address"
+                      value={formData.address}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm h-[56px]" 
+                      placeholder="시공 주소를 입력해주세요" 
+                    />
                   </div>
                 </div>
 
@@ -104,11 +224,38 @@ const InquiryForm: React.FC = () => {
                     연락처 <span className="text-red-500">*</span>
                   </label>
                   <div className="flex items-center gap-2 min-w-0">
-                    <input type="text" className="flex-1 min-w-0 bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all" placeholder="010" />
+                    <input 
+                      type="text" 
+                      name="phone1"
+                      value={formData.phone1}
+                      onChange={handleChange}
+                      required
+                      maxLength={3}
+                      className="flex-1 min-w-0 bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all" 
+                      placeholder="010" 
+                    />
                     <span className="text-neutral-text/20 font-black flex-shrink-0">-</span>
-                    <input type="text" className="flex-1 min-w-0 bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all" placeholder="0000" />
+                    <input 
+                      type="text" 
+                      name="phone2"
+                      value={formData.phone2}
+                      onChange={handleChange}
+                      required
+                      maxLength={4}
+                      className="flex-1 min-w-0 bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all" 
+                      placeholder="0000" 
+                    />
                     <span className="text-neutral-text/20 font-black flex-shrink-0">-</span>
-                    <input type="text" className="flex-1 min-w-0 bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all" placeholder="0000" />
+                    <input 
+                      type="text" 
+                      name="phone3"
+                      value={formData.phone3}
+                      onChange={handleChange}
+                      required
+                      maxLength={4}
+                      className="flex-1 min-w-0 bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all" 
+                      placeholder="0000" 
+                    />
                   </div>
                 </div>
 
@@ -117,7 +264,15 @@ const InquiryForm: React.FC = () => {
                   <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                     이메일 <span className="text-red-500">*</span>
                   </label>
-                  <input type="email" className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" placeholder="example@email.com" />
+                  <input 
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" 
+                    placeholder="example@email.com" 
+                  />
                 </div>
 
                 {/* Grid Group 2: Industrial & Date */}
@@ -126,13 +281,28 @@ const InquiryForm: React.FC = () => {
                     <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       업종 및 평수 <span className="text-red-500">*</span>
                     </label>
-                    <input type="text" className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" placeholder="업종 / 면적(평)" />
+                    <input 
+                      type="text" 
+                      name="industry"
+                      value={formData.industry}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" 
+                      placeholder="업종 / 면적(평)" 
+                    />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       공사 희망일 <span className="text-red-500">*</span>
                     </label>
-                    <input type="date" className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" />
+                    <input 
+                      type="date" 
+                      name="constructionDate"
+                      value={formData.constructionDate}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" 
+                    />
                   </div>
                 </div>
 
@@ -142,13 +312,28 @@ const InquiryForm: React.FC = () => {
                     <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       예산 <span className="text-red-500">*</span>
                     </label>
-                    <input type="text" className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" placeholder="예상 예산(만원)" />
+                    <input 
+                      type="text" 
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" 
+                      placeholder="예상 예산(만원)" 
+                    />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       방문 견적 희망일 <span className="text-red-500">*</span>
                     </label>
-                    <input type="date" className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" />
+                    <input 
+                      type="date" 
+                      name="visitDate"
+                      value={formData.visitDate}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" 
+                    />
                   </div>
                 </div>
 
@@ -157,13 +342,27 @@ const InquiryForm: React.FC = () => {
                   <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                     상세 설명 <span className="text-red-500">*</span>
                   </label>
-                  <textarea className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-32 md:h-40 resize-none focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" placeholder="요청 사항을 자유롭게 입력해주세요."></textarea>
+                  <textarea 
+                    name="details"
+                    value={formData.details}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-32 md:h-40 resize-none focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" 
+                    placeholder="요청 사항을 자유롭게 입력해주세요."
+                  ></textarea>
                 </div>
 
                 {/* Agreement: Scrollable for Mobile Space Saving */}
                 <div className="pt-6 border-t border-neutral-surface">
                    <div className="flex items-center gap-3 mb-4 cursor-pointer group">
-                     <input type="checkbox" id="agree" className="w-5 h-5 accent-primary cursor-pointer rounded transition-transform group-active:scale-90" />
+                     <input 
+                       type="checkbox" 
+                       id="agree" 
+                       checked={formData.agree}
+                       onChange={handleCheckboxChange}
+                       required
+                       className="w-5 h-5 accent-primary cursor-pointer rounded transition-transform group-active:scale-90" 
+                     />
                      <label htmlFor="agree" className="text-xs md:text-sm font-bold text-neutral-strong cursor-pointer select-none">개인정보 수집 및 이용 동의 <span className="text-red-500">*</span></label>
                    </div>
                    <div className="bg-neutral-surface/50 p-4 md:p-5 rounded-xl text-[11px] md:text-[12px] text-neutral-text/70 leading-relaxed font-medium h-24 md:h-28 overflow-y-auto border border-neutral-surface shadow-inner">
@@ -176,10 +375,25 @@ const InquiryForm: React.FC = () => {
                 </div>
 
                 {/* Submit Button: Full-width for Mobile Thumb Reach */}
-                <button className="w-full bg-primary text-white py-5 md:py-6 rounded-2xl font-black text-base md:text-xl hover:bg-primary-strong transition-all active:scale-[0.98] shadow-2xl shadow-primary/30 mt-4 group min-h-[64px]">
+                <button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`w-full bg-primary text-white py-5 md:py-6 rounded-2xl font-black text-base md:text-xl hover:bg-primary-strong transition-all active:scale-[0.98] shadow-2xl shadow-primary/30 mt-4 group min-h-[64px] ${
+                    isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
+                >
                   <span className="flex items-center justify-center gap-3">
-                    상담 신청하기
-                    <i className="fas fa-paper-plane text-[10px] md:text-sm opacity-60 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                    {isSubmitting ? (
+                      <>
+                        <i className="fas fa-spinner fa-spin text-[10px] md:text-sm"></i>
+                        처리 중...
+                      </>
+                    ) : (
+                      <>
+                        카카오톡으로 상담 신청하기
+                        <i className="fas fa-comment text-[10px] md:text-sm opacity-60 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                      </>
+                    )}
                   </span>
                 </button>
               </form>

@@ -4,90 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="원복프로 - 프리미엄 인테리어 & 원상복구 전문가. 철거부터 원상복구까지 원스톱 서비스 제공.">
+    <meta name="keywords" content="원상복구, 철거, 리모델링, 폐업지원금, 인테리어">
     <title>원복프로 | 프리미엄 인테리어 & 원상복구 전문가</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Pretendard Font (국문) -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <style>
-        :root {
-            --primary: #008080;
-            --primary-soft: #E6F2F2;
-            --background: #FFFBF7;
-            --surface: #F5F1EC;
-            --border: #E5E0D8;
-            --text-strong: #1F2933;
-            --text-main: #4B5563;
-        }
-        body {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-            scroll-behavior: smooth;
-            background-color: var(--background);
-            color: var(--text-main);
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        section {
-            scroll-margin-top: 80px;
-        }
-
-        h1, h2, h3, h4 {
-            letter-spacing: -0.05em !important;
-            line-height: 1.2 !important;
-            word-break: keep-all;
-            color: var(--text-strong);
-        }
-        
-        p, li, td, span, label, input, textarea {
-            line-height: 1.6 !important;
-            letter-spacing: -0.02em !important;
-            word-break: keep-all;
-        }
-
-        /* Input focus accessibility */
-        input:focus, textarea:focus {
-            box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.1);
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            animation: marquee 50s linear infinite;
-            display: flex;
-            width: max-content;
-        }
-    </style>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: {
-                DEFAULT: '#008080',
-                soft: '#E6F2F2',
-                strong: '#134E4A',
-                border: '#E5E0D8',
-              },
-              neutral: {
-                bg: '#FFFBF7',
-                surface: '#F5F1EC',
-                text: '#4B5563',
-                strong: '#1F2933',
-              }
-            },
-            container: {
-              center: true,
-              padding: {
-                DEFAULT: '1rem',
-                sm: '1.5rem',
-                lg: '2.5rem',
-              },
-            }
-          }
-        }
-      }
-    </script>
+    
+    <!-- Inter Font (영문) - 프리미엄 디자인 시스템 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS (Tailwind) -->
+    <link rel="stylesheet" href="/src/styles/main.css">
 <script type="importmap">
 {
   "imports": {

@@ -44,10 +44,10 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'py-4 bg-white/95 backdrop-blur-md border-b border-primary-border shadow-2xl shadow-primary/5' 
-          : 'py-8 bg-transparent'
+          ? 'py-3 md:py-4 bg-white/95 backdrop-blur-md border-b border-primary-border/40 shadow-md' 
+          : 'py-6 md:py-8 bg-transparent'
       }`}>
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo Area */}
@@ -55,9 +55,9 @@ const Header: React.FC = () => {
             className="flex items-center gap-3 cursor-pointer group" 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="bg-primary w-10 h-10 flex items-center justify-center text-white font-black text-xl rounded-xl shadow-xl group-hover:scale-110 transition-transform">W</div>
-            <span className={`text-2xl font-black tracking-tighter transition-colors ${isScrolled ? 'text-neutral-strong' : 'text-white'}`}>
-              원복<span className={isScrolled ? 'text-primary' : 'text-white/70'}>프로</span>
+            <div className="bg-primary w-9 h-9 md:w-10 md:h-10 flex items-center justify-center text-white font-black text-lg md:text-xl rounded-lg md:rounded-xl shadow-md group-hover:scale-105 transition-transform duration-200">W</div>
+            <span className={`text-xl md:text-2xl font-black tracking-[-0.02em] transition-colors duration-200 ${isScrolled ? 'text-neutral-strong' : 'text-white'}`}>
+              원복<span className={isScrolled ? 'text-primary' : 'text-white/80'}>프로</span>
             </span>
           </div>
           
@@ -68,22 +68,22 @@ const Header: React.FC = () => {
                 <button 
                   key={item.name} 
                   onClick={() => handleScrollTo(item.href)}
-                  className={`text-[15px] font-black transition-all hover:text-primary relative group ${
-                    isScrolled ? 'text-neutral-text/80' : 'text-white/80 hover:text-white'
+                  className={`text-sm md:text-[15px] font-semibold transition-all duration-200 hover:text-primary relative group ${
+                    isScrolled ? 'text-neutral-text/70' : 'text-white/80 hover:text-white'
                   }`}
                 >
                   {item.name}
-                  <span className="absolute bottom-[-8px] left-0 w-0 h-[2px] bg-primary transition-all group-hover:w-full"></span>
+                  <span className="absolute bottom-[-6px] left-0 w-0 h-[1.5px] bg-primary transition-all duration-200 group-hover:w-full"></span>
                 </button>
               ))}
             </nav>
             
             <button 
               onClick={() => handleScrollTo('무료견적')}
-              className={`hidden sm:block px-8 py-3 rounded-[1rem] font-black text-[15px] transition-all active:scale-95 shadow-2xl hover:-translate-y-1 ${
+              className={`hidden sm:block px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-semibold text-sm md:text-[15px] transition-all duration-200 active:scale-[0.98] shadow-md hover:shadow-lg ${
                 isScrolled 
-                  ? 'bg-primary text-white shadow-primary/20 hover:bg-primary-strong' 
-                  : 'bg-white text-primary shadow-white/10 hover:bg-primary-soft'
+                  ? 'bg-primary text-white hover:bg-primary-strong' 
+                  : 'bg-white text-primary hover:bg-primary-soft'
               }`}
             >
               무료 견적 신청
