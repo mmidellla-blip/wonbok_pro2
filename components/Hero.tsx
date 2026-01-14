@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
         </div>
       ))}
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-strong/90 via-primary-strong/60 to-transparent z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary-strong/40 via-primary-strong/20 to-transparent z-10"></div>
       
       {/* Content */}
       <div className="container mx-auto relative z-20 h-full flex flex-col">
@@ -83,20 +83,6 @@ const Hero: React.FC = () => {
               </button>
             </div>
           </div>
-        </div>
-
-        {/* Slide indicators */}
-        <div className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 z-30 flex gap-3 md:gap-4">
-          {slides.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              className={`h-1 rounded-full transition-all duration-300 ${
-                idx === currentSlide ? 'bg-white w-10 md:w-12' : 'bg-white/30 w-2 md:w-3 hover:bg-white/50'
-              }`}
-              aria-label={`${idx + 1}번 슬라이드`}
-            />
-          ))}
         </div>
       </div>
 

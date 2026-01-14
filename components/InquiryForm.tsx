@@ -113,7 +113,7 @@ ${formData.details}
         <i className="fas fa-screwdriver-wrench text-[25rem] md:text-[40rem] text-white rotate-[-15deg]"></i>
       </div>
 
-      <div className="container mx-auto px-5 md:px-6 relative z-10">
+      <div className="container mx-auto px-5 md:px-6 relative z-10 max-w-full overflow-hidden">
         {/* Section Header: Responsive Typography */}
         <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16 lg:mb-20 text-white">
           <p className="text-sm md:text-base font-bold mb-2 md:mb-4 opacity-90">막막한 원상복구</p>
@@ -127,7 +127,7 @@ ${formData.details}
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start max-w-7xl mx-auto min-w-0">
           
           {/* 1. Contact Info Column: Optimized for Mobile/Tablet */}
           <div className="w-full lg:w-[42%] space-y-8 md:space-y-12">
@@ -182,13 +182,13 @@ ${formData.details}
           </div>
 
           {/* 2. Main Form Column: Refined Spacing for Touch Accessibility */}
-          <div className="w-full lg:w-[58%]">
-            <div className="bg-white p-6 sm:p-8 md:p-12 lg:p-14 rounded-[2rem] md:rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,40,40,0.4)] border border-neutral-border/10">
-              <form className="space-y-6 md:space-y-8" onSubmit={handleSubmit}>
+          <div className="w-full lg:w-[58%] min-w-0">
+            <div className="bg-white p-6 sm:p-8 md:p-12 lg:p-14 rounded-[2rem] md:rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,40,40,0.4)] border border-neutral-border/10 overflow-hidden">
+              <form className="space-y-6 md:space-y-8 max-w-full" onSubmit={handleSubmit}>
                 
                 {/* Field Group 1: 2-Cols on Tablet/Desktop, 1-Col on Mobile */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
-                  <div className="space-y-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 min-w-0">
+                  <div className="space-y-2 min-w-0">
                     <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       회사명 / 담당자 성함 <span className="text-red-500">*</span>
                     </label>
@@ -198,11 +198,11 @@ ${formData.details}
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm h-[56px]" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm h-[56px] box-border" 
                       placeholder="이름을 입력해주세요" 
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2 min-w-0">
                     <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       현장 주소 <span className="text-red-500">*</span>
                     </label>
@@ -212,18 +212,18 @@ ${formData.details}
                       value={formData.address}
                       onChange={handleChange}
                       required
-                      className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm h-[56px]" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm h-[56px] box-border" 
                       placeholder="시공 주소를 입력해주세요" 
                     />
                   </div>
                 </div>
 
                 {/* Contact Field (3 parts): Responsive Flex */}
-                <div className="space-y-2">
+                <div className="space-y-2 min-w-0">
                   <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                     연락처 <span className="text-red-500">*</span>
                   </label>
-                  <div className="flex items-center gap-2 min-w-0">
+                  <div className="flex items-center gap-2 min-w-0 max-w-full">
                     <input 
                       type="text" 
                       name="phone1"
@@ -231,7 +231,7 @@ ${formData.details}
                       onChange={handleChange}
                       required
                       maxLength={3}
-                      className="flex-1 min-w-0 bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all" 
+                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all box-border" 
                       placeholder="010" 
                     />
                     <span className="text-neutral-text/20 font-black flex-shrink-0">-</span>
@@ -242,7 +242,7 @@ ${formData.details}
                       onChange={handleChange}
                       required
                       maxLength={4}
-                      className="flex-1 min-w-0 bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all" 
+                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all box-border" 
                       placeholder="0000" 
                     />
                     <span className="text-neutral-text/20 font-black flex-shrink-0">-</span>
@@ -253,14 +253,14 @@ ${formData.details}
                       onChange={handleChange}
                       required
                       maxLength={4}
-                      className="flex-1 min-w-0 bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all" 
+                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all box-border" 
                       placeholder="0000" 
                     />
                   </div>
                 </div>
 
                 {/* Email Field */}
-                <div className="space-y-2">
+                <div className="space-y-2 min-w-0">
                   <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                     이메일 <span className="text-red-500">*</span>
                   </label>
@@ -270,14 +270,14 @@ ${formData.details}
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" 
+                    className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
                     placeholder="example@email.com" 
                   />
                 </div>
 
                 {/* Grid Group 2: Industrial & Date */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
-                  <div className="space-y-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 min-w-0">
+                  <div className="space-y-2 min-w-0">
                     <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       업종 및 평수 <span className="text-red-500">*</span>
                     </label>
@@ -287,11 +287,11 @@ ${formData.details}
                       value={formData.industry}
                       onChange={handleChange}
                       required
-                      className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
                       placeholder="업종 / 면적(평)" 
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2 min-w-0">
                     <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       공사 희망일 <span className="text-red-500">*</span>
                     </label>
@@ -301,14 +301,14 @@ ${formData.details}
                       value={formData.constructionDate}
                       onChange={handleChange}
                       required
-                      className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
                     />
                   </div>
                 </div>
 
                 {/* Budget & Visit Group */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
-                  <div className="space-y-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 min-w-0">
+                  <div className="space-y-2 min-w-0">
                     <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       예산 <span className="text-red-500">*</span>
                     </label>
@@ -318,11 +318,11 @@ ${formData.details}
                       value={formData.budget}
                       onChange={handleChange}
                       required
-                      className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
                       placeholder="예상 예산(만원)" 
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2 min-w-0">
                     <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       방문 견적 희망일 <span className="text-red-500">*</span>
                     </label>
@@ -332,13 +332,13 @@ ${formData.details}
                       value={formData.visitDate}
                       onChange={handleChange}
                       required
-                      className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
                     />
                   </div>
                 </div>
 
                 {/* Details TextArea */}
-                <div className="space-y-2">
+                <div className="space-y-2 min-w-0">
                   <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                     상세 설명 <span className="text-red-500">*</span>
                   </label>
@@ -347,7 +347,7 @@ ${formData.details}
                     value={formData.details}
                     onChange={handleChange}
                     required
-                    className="w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-32 md:h-40 resize-none focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm" 
+                    className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-32 md:h-40 resize-none focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
                     placeholder="요청 사항을 자유롭게 입력해주세요."
                   ></textarea>
                 </div>
