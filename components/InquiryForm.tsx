@@ -183,13 +183,13 @@ ${formData.details}
 
           {/* 2. Main Form Column: Refined Spacing for Touch Accessibility */}
           <div className="w-full lg:w-[58%] min-w-0">
-            <div className="bg-white p-6 sm:p-8 md:p-12 lg:p-14 rounded-[2rem] md:rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,40,40,0.4)] border border-neutral-border/10 overflow-hidden">
-              <form className="space-y-6 md:space-y-8 max-w-full" onSubmit={handleSubmit}>
+            <div className="bg-white p-4 sm:p-6 md:p-12 lg:p-14 rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,40,40,0.4)] border border-neutral-border/10 overflow-hidden">
+              <form className="space-y-4 md:space-y-8 max-w-full" onSubmit={handleSubmit}>
                 
                 {/* Field Group 1: 2-Cols on Tablet/Desktop, 1-Col on Mobile */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 min-w-0">
-                  <div className="space-y-2 min-w-0">
-                    <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 min-w-0">
+                  <div className="space-y-1.5 md:space-y-2 min-w-0">
+                    <label className="text-[10px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       회사명 / 담당자 성함 <span className="text-red-500">*</span>
                     </label>
                     <input 
@@ -198,12 +198,12 @@ ${formData.details}
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm h-[56px] box-border" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm h-[44px] md:h-[56px] box-border" 
                       placeholder="이름을 입력해주세요" 
                     />
                   </div>
-                  <div className="space-y-2 min-w-0">
-                    <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
+                  <div className="space-y-1.5 md:space-y-2 min-w-0">
+                    <label className="text-[10px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       현장 주소 <span className="text-red-500">*</span>
                     </label>
                     <input 
@@ -212,18 +212,18 @@ ${formData.details}
                       value={formData.address}
                       onChange={handleChange}
                       required
-                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm h-[56px] box-border" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm h-[44px] md:h-[56px] box-border" 
                       placeholder="시공 주소를 입력해주세요" 
                     />
                   </div>
                 </div>
 
                 {/* Contact Field (3 parts): Responsive Flex */}
-                <div className="space-y-2 min-w-0">
-                  <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
+                <div className="space-y-1.5 md:space-y-2 min-w-0">
+                  <label className="text-[10px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                     연락처 <span className="text-red-500">*</span>
                   </label>
-                  <div className="flex items-center gap-2 min-w-0 max-w-full">
+                  <div className="flex items-center gap-1.5 md:gap-2 min-w-0 max-w-full">
                     <input 
                       type="text" 
                       name="phone1"
@@ -231,10 +231,10 @@ ${formData.details}
                       onChange={handleChange}
                       required
                       maxLength={3}
-                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all box-border" 
+                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 py-2.5 md:px-3 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] text-center font-bold transition-all box-border" 
                       placeholder="010" 
                     />
-                    <span className="text-neutral-text/20 font-black flex-shrink-0">-</span>
+                    <span className="text-neutral-text/20 font-black flex-shrink-0 text-sm md:text-base">-</span>
                     <input 
                       type="text" 
                       name="phone2"
@@ -242,10 +242,10 @@ ${formData.details}
                       onChange={handleChange}
                       required
                       maxLength={4}
-                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all box-border" 
+                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 py-2.5 md:px-3 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] text-center font-bold transition-all box-border" 
                       placeholder="0000" 
                     />
-                    <span className="text-neutral-text/20 font-black flex-shrink-0">-</span>
+                    <span className="text-neutral-text/20 font-black flex-shrink-0 text-sm md:text-base">-</span>
                     <input 
                       type="text" 
                       name="phone3"
@@ -253,15 +253,15 @@ ${formData.details}
                       onChange={handleChange}
                       required
                       maxLength={4}
-                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 md:px-3 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] text-center font-bold transition-all box-border" 
+                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 py-2.5 md:px-3 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] text-center font-bold transition-all box-border" 
                       placeholder="0000" 
                     />
                   </div>
                 </div>
 
                 {/* Email Field */}
-                <div className="space-y-2 min-w-0">
-                  <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
+                <div className="space-y-1.5 md:space-y-2 min-w-0">
+                  <label className="text-[10px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                     이메일 <span className="text-red-500">*</span>
                   </label>
                   <input 
@@ -270,15 +270,15 @@ ${formData.details}
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
+                    className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
                     placeholder="example@email.com" 
                   />
                 </div>
 
                 {/* Grid Group 2: Industrial & Date */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 min-w-0">
-                  <div className="space-y-2 min-w-0">
-                    <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 min-w-0">
+                  <div className="space-y-1.5 md:space-y-2 min-w-0">
+                    <label className="text-[10px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       업종 및 평수 <span className="text-red-500">*</span>
                     </label>
                     <input 
@@ -287,12 +287,12 @@ ${formData.details}
                       value={formData.industry}
                       onChange={handleChange}
                       required
-                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
                       placeholder="업종 / 면적(평)" 
                     />
                   </div>
-                  <div className="space-y-2 min-w-0">
-                    <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
+                  <div className="space-y-1.5 md:space-y-2 min-w-0">
+                    <label className="text-[10px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       공사 희망일 <span className="text-red-500">*</span>
                     </label>
                     <input 
@@ -301,15 +301,15 @@ ${formData.details}
                       value={formData.constructionDate}
                       onChange={handleChange}
                       required
-                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
                     />
                   </div>
                 </div>
 
                 {/* Budget & Visit Group */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 min-w-0">
-                  <div className="space-y-2 min-w-0">
-                    <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 min-w-0">
+                  <div className="space-y-1.5 md:space-y-2 min-w-0">
+                    <label className="text-[10px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       예산 <span className="text-red-500">*</span>
                     </label>
                     <input 
@@ -318,12 +318,12 @@ ${formData.details}
                       value={formData.budget}
                       onChange={handleChange}
                       required
-                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
                       placeholder="예상 예산(만원)" 
                     />
                   </div>
-                  <div className="space-y-2 min-w-0">
-                    <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
+                  <div className="space-y-1.5 md:space-y-2 min-w-0">
+                    <label className="text-[10px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       방문 견적 희망일 <span className="text-red-500">*</span>
                     </label>
                     <input 
@@ -332,14 +332,14 @@ ${formData.details}
                       value={formData.visitDate}
                       onChange={handleChange}
                       required
-                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
                     />
                   </div>
                 </div>
 
                 {/* Details TextArea */}
-                <div className="space-y-2 min-w-0">
-                  <label className="text-[11px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
+                <div className="space-y-1.5 md:space-y-2 min-w-0">
+                  <label className="text-[10px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                     상세 설명 <span className="text-red-500">*</span>
                   </label>
                   <textarea 
@@ -347,7 +347,7 @@ ${formData.details}
                     value={formData.details}
                     onChange={handleChange}
                     required
-                    className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-5 py-4 h-32 md:h-40 resize-none focus:outline-none focus:border-primary/30 focus:bg-white rounded-xl text-[14px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
+                    className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-3 md:px-5 md:py-4 h-24 md:h-40 resize-none focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
                     placeholder="요청 사항을 자유롭게 입력해주세요."
                   ></textarea>
                 </div>
@@ -378,7 +378,7 @@ ${formData.details}
                 <button 
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full bg-primary text-white py-5 md:py-6 rounded-2xl font-black text-base md:text-xl hover:bg-primary-strong transition-all active:scale-[0.98] shadow-2xl shadow-primary/30 mt-4 group min-h-[64px] ${
+                  className={`w-full bg-primary text-white py-3.5 md:py-6 rounded-xl md:rounded-2xl font-black text-sm md:text-xl hover:bg-primary-strong transition-all active:scale-[0.98] shadow-2xl shadow-primary/30 mt-3 md:mt-4 group min-h-[48px] md:min-h-[64px] ${
                     isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                   }`}
                 >
