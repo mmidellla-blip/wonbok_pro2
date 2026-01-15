@@ -16,7 +16,7 @@ const LiveFeed: React.FC = () => {
   return (
     <div className="bg-white border-y border-primary-border/40 py-4 overflow-hidden relative h-16 flex items-center shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] w-full">
       {/* Live Status Label */}
-      <div className="absolute left-0 top-0 bottom-0 h-full z-30 flex items-center bg-white/90 backdrop-blur-md pl-4 md:pl-8 pr-4 md:pr-8">
+      <div className="absolute left-0 top-0 bottom-0 h-full z-30 flex items-center bg-white/95 md:bg-white/90 md:backdrop-blur-md pl-4 md:pl-8 pr-4 md:pr-8">
         <div className="flex items-center gap-4 h-full">
           <div className="relative flex h-3 w-3 flex-shrink-0">
             <div className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-40"></div>

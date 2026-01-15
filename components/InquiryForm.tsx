@@ -149,9 +149,9 @@ ${formData.details}
                     key={idx} 
                     href={item.link || "#"} 
                     target={item.link?.startsWith('http') ? "_blank" : undefined}
-                    className="bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-6 rounded-2xl flex items-center gap-4 md:gap-6 group hover:bg-white/25 transition-all cursor-pointer min-h-[72px] md:min-h-[88px]"
+                    className="bg-white/10 md:backdrop-blur-md border border-white/20 p-4 md:p-6 rounded-2xl flex items-center gap-4 md:gap-6 group md:hover:bg-white/25 transition-colors duration-200 cursor-pointer min-h-[72px] md:min-h-[88px]"
                   >
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 flex items-center justify-center rounded-xl text-white group-hover:scale-110 transition-transform flex-shrink-0">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 flex items-center justify-center rounded-xl text-white md:group-hover:scale-110 transition-transform duration-200 flex-shrink-0">
                       <i className={`fas ${item.icon} text-base md:text-xl`}></i>
                     </div>
                     <div>
@@ -169,8 +169,8 @@ ${formData.details}
                 "빠른 견적,\n신뢰할 수 있는 법인 시공",
                 "폐업 지원금까지\n원스톱으로 진행"
               ].map((text, idx) => (
-                <div key={idx} className="bg-white p-5 md:p-8 rounded-2xl md:rounded-[2rem] shadow-xl text-center flex flex-col items-center justify-center gap-2 md:gap-4 group hover:shadow-2xl transition-all border border-primary-border/20">
-                  <div className="w-7 h-7 md:w-10 md:h-10 bg-primary text-white rounded-full flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                <div key={idx} className="bg-white p-5 md:p-8 rounded-2xl md:rounded-[2rem] shadow-xl text-center flex flex-col items-center justify-center gap-2 md:gap-4 group md:hover:shadow-2xl transition-shadow duration-200 border border-primary-border/20">
+                  <div className="w-7 h-7 md:w-10 md:h-10 bg-primary text-white rounded-full flex items-center justify-center shadow-md md:group-hover:scale-110 transition-transform duration-200">
                     <i className="fas fa-check text-[10px] md:text-sm"></i>
                   </div>
                   <p className="text-neutral-strong font-black text-[11px] sm:text-xs md:text-base leading-snug tracking-tighter whitespace-pre-line">
@@ -198,7 +198,7 @@ ${formData.details}
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm h-[44px] md:h-[56px] box-border" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-[border-color,background-color] duration-200 shadow-sm h-[44px] md:h-[56px] box-border" 
                       placeholder="이름을 입력해주세요" 
                     />
                   </div>
@@ -212,7 +212,7 @@ ${formData.details}
                       value={formData.address}
                       onChange={handleChange}
                       required
-                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm h-[44px] md:h-[56px] box-border" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-[border-color,background-color] duration-200 shadow-sm h-[44px] md:h-[56px] box-border" 
                       placeholder="시공 주소를 입력해주세요" 
                     />
                   </div>
@@ -231,7 +231,7 @@ ${formData.details}
                       onChange={handleChange}
                       required
                       maxLength={3}
-                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 py-2.5 md:px-3 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] text-center font-bold transition-all box-border" 
+                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 py-2.5 md:px-3 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] text-center font-bold transition-[border-color,background-color] duration-200 box-border" 
                       placeholder="010" 
                     />
                     <span className="text-neutral-text/20 font-black flex-shrink-0 text-sm md:text-base">-</span>
@@ -242,7 +242,7 @@ ${formData.details}
                       onChange={handleChange}
                       required
                       maxLength={4}
-                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 py-2.5 md:px-3 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] text-center font-bold transition-all box-border" 
+                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 py-2.5 md:px-3 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] text-center font-bold transition-[border-color,background-color] duration-200 box-border" 
                       placeholder="0000" 
                     />
                     <span className="text-neutral-text/20 font-black flex-shrink-0 text-sm md:text-base">-</span>
@@ -253,7 +253,7 @@ ${formData.details}
                       onChange={handleChange}
                       required
                       maxLength={4}
-                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 py-2.5 md:px-3 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] text-center font-bold transition-all box-border" 
+                      className="flex-1 min-w-0 max-w-full bg-neutral-surface/50 border-2 border-transparent px-2 py-2.5 md:px-3 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] text-center font-bold transition-[border-color,background-color] duration-200 box-border" 
                       placeholder="0000" 
                     />
                   </div>
@@ -270,7 +270,7 @@ ${formData.details}
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
+                    className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-[border-color,background-color] duration-200 shadow-sm box-border" 
                     placeholder="example@email.com" 
                   />
                 </div>
@@ -287,7 +287,7 @@ ${formData.details}
                       value={formData.industry}
                       onChange={handleChange}
                       required
-                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-[border-color,background-color] duration-200 shadow-sm box-border" 
                       placeholder="업종 / 면적(평)" 
                     />
                   </div>
@@ -301,7 +301,7 @@ ${formData.details}
                       value={formData.constructionDate}
                       onChange={handleChange}
                       required
-                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-[border-color,background-color] duration-200 shadow-sm box-border" 
                     />
                   </div>
                 </div>
@@ -318,7 +318,7 @@ ${formData.details}
                       value={formData.budget}
                       onChange={handleChange}
                       required
-                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-[border-color,background-color] duration-200 shadow-sm box-border" 
                       placeholder="예상 예산(만원)" 
                     />
                   </div>
@@ -332,7 +332,7 @@ ${formData.details}
                       value={formData.visitDate}
                       onChange={handleChange}
                       required
-                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-[border-color,background-color] duration-200 shadow-sm box-border" 
                     />
                   </div>
                 </div>
@@ -347,7 +347,7 @@ ${formData.details}
                     value={formData.details}
                     onChange={handleChange}
                     required
-                    className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-3 md:px-5 md:py-4 h-24 md:h-40 resize-none focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-all shadow-sm box-border" 
+                    className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-3 md:px-5 md:py-4 h-24 md:h-40 resize-none focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-[border-color,background-color] duration-200 shadow-sm box-border" 
                     placeholder="요청 사항을 자유롭게 입력해주세요."
                   ></textarea>
                 </div>
@@ -361,7 +361,7 @@ ${formData.details}
                        checked={formData.agree}
                        onChange={handleCheckboxChange}
                        required
-                       className="w-5 h-5 accent-primary cursor-pointer rounded transition-transform group-active:scale-90" 
+                       className="w-5 h-5 accent-primary cursor-pointer rounded transition-transform duration-150 active:scale-90" 
                      />
                      <label htmlFor="agree" className="text-xs md:text-sm font-bold text-neutral-strong cursor-pointer select-none">개인정보 수집 및 이용 동의 <span className="text-red-500">*</span></label>
                    </div>
@@ -378,7 +378,7 @@ ${formData.details}
                 <button 
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full bg-primary text-white py-3.5 md:py-6 rounded-xl md:rounded-2xl font-black text-sm md:text-xl hover:bg-primary-strong transition-all active:scale-[0.98] shadow-2xl shadow-primary/30 mt-3 md:mt-4 group min-h-[48px] md:min-h-[64px] ${
+                  className={`w-full bg-primary text-white py-3.5 md:py-6 rounded-xl md:rounded-2xl font-black text-sm md:text-xl md:hover:bg-primary-strong transition-[background-color,transform] duration-200 active:scale-[0.98] shadow-2xl shadow-primary/30 mt-3 md:mt-4 group min-h-[48px] md:min-h-[64px] ${
                     isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                   }`}
                 >
@@ -391,7 +391,7 @@ ${formData.details}
                     ) : (
                       <>
                         카카오톡으로 상담 신청하기
-                        <i className="fas fa-comment text-[10px] md:text-sm opacity-60 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                        <i className="fas fa-comment text-[10px] md:text-sm opacity-60 md:group-hover:translate-x-1 md:group-hover:-translate-y-1 transition-transform duration-200"></i>
                       </>
                     )}
                   </span>

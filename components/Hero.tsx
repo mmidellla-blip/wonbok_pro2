@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
       {slides.map((slide, idx) => (
         <div 
           key={idx}
-          className={`absolute inset-0 transition-all duration-[2000ms] ease-out ${idx === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
+          className={`absolute inset-0 transition-[opacity,transform] duration-[2000ms] ease-out ${idx === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
         >
           <img 
             src={slide.img} 
@@ -55,31 +55,31 @@ const Hero: React.FC = () => {
         <div className="flex-1 flex items-center">
           <div className="max-w-3xl px-4 md:px-0 w-full">
             <div className="overflow-hidden mb-5 md:mb-6">
-              <span className="inline-block px-3.5 py-1.5 bg-primary text-white text-[0.6875rem] font-semibold rounded-full shadow-md tracking-[0.05em] uppercase animate-in slide-in-from-bottom-full duration-700">
+              <span className="inline-block px-3.5 py-1.5 bg-primary text-white text-[0.6875rem] font-semibold rounded-full shadow-md tracking-[0.05em] uppercase md:animate-in md:slide-in-from-bottom-full md:duration-700">
                 Premium Restoration Partner
               </span>
             </div>
             
             <div className="mb-6 md:mb-8 space-y-1.5 md:space-y-2">
-               <h2 className="text-lg md:text-xl font-medium text-white/80 tracking-tight animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
+               <h2 className="text-lg md:text-xl font-medium text-white/80 tracking-tight md:animate-in md:fade-in md:slide-in-from-bottom-4 md:duration-700 md:delay-100">
                  {slides[currentSlide].title1}
                </h2>
-               <h1 className="text-[2.5rem] md:text-[2.75rem] lg:text-[3rem] font-black text-white leading-[1.2] tracking-[-0.03em] animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200">
+               <h1 className="text-[2.5rem] md:text-[2.75rem] lg:text-[3rem] font-black text-white leading-[1.2] tracking-[-0.03em] md:animate-in md:fade-in md:slide-in-from-bottom-6 md:duration-1000 md:delay-200">
                  {slides[currentSlide].title2}
                </h1>
             </div>
             
-            <p className="text-[0.9375rem] md:text-base text-white/85 font-medium leading-relaxed mb-10 md:mb-12 max-w-xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 whitespace-pre-line">
+            <p className="text-[0.9375rem] md:text-base text-white/85 font-medium leading-relaxed mb-10 md:mb-12 max-w-xl md:animate-in md:fade-in md:slide-in-from-bottom-8 md:duration-1000 md:delay-300 whitespace-pre-line">
               {slides[currentSlide].desc}
             </p>
             
-            <div className="flex flex-wrap gap-3 md:gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
+            <div className="flex flex-wrap gap-3 md:gap-4 md:animate-in md:fade-in md:slide-in-from-bottom-10 md:duration-1000 md:delay-500">
               <button 
                 onClick={() => document.getElementById('무료견적')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-6 md:px-8 py-3 md:py-3.5 bg-primary text-white font-semibold text-base md:text-lg rounded-lg hover:bg-primary-strong transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] flex items-center gap-2.5 md:gap-3 group"
+                className="px-6 md:px-8 py-3 md:py-3.5 bg-primary text-white font-semibold text-base md:text-lg rounded-lg md:hover:bg-primary-strong transition-[background-color,transform,box-shadow] duration-200 shadow-md md:hover:shadow-lg active:scale-[0.98] flex items-center gap-2.5 md:gap-3 group"
               >
                 상담 문의하기
-                <i className="fas fa-arrow-right text-sm group-hover:translate-x-0.5 transition-transform duration-200"></i>
+                <i className="fas fa-arrow-right text-sm md:group-hover:translate-x-0.5 transition-transform duration-200"></i>
               </button>
             </div>
           </div>
