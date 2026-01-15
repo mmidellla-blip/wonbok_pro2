@@ -44,7 +44,9 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      <header className={`fixed top-0 left-0 right-0 transition-all duration-300 ${
+        isMenuOpen ? 'hidden lg:block z-[40]' : 'z-50'
+      } ${
         isScrolled 
           ? 'py-3 md:py-4 bg-white/95 backdrop-blur-md border-b border-primary-border/40 shadow-md' 
           : 'py-6 md:py-8 bg-transparent'
@@ -102,25 +104,113 @@ const Header: React.FC = () => {
       </header>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 z-[40] bg-neutral-bg transition-all duration-700 lg:hidden ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}`}>
-        <div className="flex flex-col items-center justify-center h-full gap-12 px-10">
-          {menuItems.map((item) => (
-            <button 
-              key={item.name} 
-              onClick={() => handleScrollTo(item.href)}
-              className="text-4xl font-black text-neutral-strong hover:text-primary transition-colors tracking-tighter"
-            >
-              {item.name}
-            </button>
-          ))}
+      {isMenuOpen && (
+        <div 
+          className="lg:hidden"
+          style={{ 
+            backgroundColor: '#ffffff', 
+            zIndex: 99999,
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            width: '100vw',
+            height: '100vh',
+            overflow: 'hidden',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          {/* Close Button in Mobile Menu */}
           <button 
-            onClick={() => handleScrollTo('무료견적')}
-            className="w-full max-w-sm py-6 bg-primary text-white font-black text-2xl rounded-2xl shadow-2xl shadow-primary/30"
+            onClick={() => setIsMenuOpen(false)}
+            aria-label="메뉴 닫기"
+            style={{ 
+              position: 'absolute',
+              top: '24px',
+              right: '24px',
+              color: '#171717', 
+              fontSize: '28px',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              padding: '8px',
+              zIndex: 100000
+            }}
           >
-            무료 견적 신청
+            <i className="fas fa-times"></i>
           </button>
+          
+          <div 
+            style={{ 
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '28px',
+              padding: '32px 24px',
+              width: '100%',
+              maxWidth: '100%'
+            }}
+          >
+            {menuItems.map((item) => (
+              <button 
+                key={item.name} 
+                onClick={() => handleScrollTo(item.href)}
+                style={{ 
+                  color: '#171717',
+                  fontSize: '22px',
+                  fontWeight: 700,
+                  background: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  padding: '12px 20px',
+                  letterSpacing: '-0.01em',
+                  textAlign: 'center',
+                  width: 'auto',
+                  minWidth: '180px',
+                  transition: 'color 0.2s ease'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#008080'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#171717'}
+              >
+                {item.name}
+              </button>
+            ))}
+            <button 
+              onClick={() => handleScrollTo('무료견적')}
+              style={{ 
+                width: '100%',
+                maxWidth: '320px',
+                padding: '18px 24px',
+                backgroundColor: '#008080',
+                color: '#ffffff',
+                fontSize: '18px',
+                fontWeight: 700,
+                borderRadius: '12px',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: '0 10px 25px -5px rgba(0, 128, 128, 0.3)',
+                marginTop: '8px',
+                transition: 'background-color 0.2s ease, transform 0.1s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#006666';
+                e.currentTarget.style.transform = 'scale(1.02)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#008080';
+                e.currentTarget.style.transform = 'scale(1)';
+              }}
+            >
+              무료 견적 신청
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
