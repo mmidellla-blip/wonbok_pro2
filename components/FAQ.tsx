@@ -51,8 +51,8 @@ const FAQ: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 md:py-40 bg-neutral-surface border-t border-primary-border/40">
-      <div className="container mx-auto px-6">
+    <section className="py-32 md:py-40 lg:py-48 bg-neutral-surface border-t border-primary-border/40 min-h-[80vh] flex items-center">
+      <div className="container mx-auto px-6 w-full max-w-[90%]">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-5 lg:sticky lg:top-32">
             <span className="text-primary font-black text-[10px] mb-6 block tracking-[0.4em] uppercase">Professional Q&A</span>

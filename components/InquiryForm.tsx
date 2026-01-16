@@ -45,20 +45,20 @@ const InquiryForm: React.FC = () => {
 
     setIsSubmitting(true);
 
-    // 카카오톡 메시지 템플릿 생성
+    // 이메일 메시지 템플릿 생성
     const phone = `${formData.phone1}-${formData.phone2}-${formData.phone3}`;
-    const message = `[원복프로 견적 신청]
+    const emailBody = `[원복프로 견적 신청]
 
-📋 회사명/담당자: ${formData.name}
-📍 현장 주소: ${formData.address}
-📞 연락처: ${phone}
-📧 이메일: ${formData.email}
-🏢 업종 및 평수: ${formData.industry}
-📅 공사 희망일: ${formData.constructionDate}
-💰 예산: ${formData.budget}만원
-📆 방문 견적 희망일: ${formData.visitDate}
+회사명/담당자: ${formData.name}
+현장 주소: ${formData.address}
+연락처: ${phone}
+이메일: ${formData.email}
+업종 및 평수: ${formData.industry}
+공사 희망일: ${formData.constructionDate}
+예산: ${formData.budget}만원
+방문 견적 희망일: ${formData.visitDate}
 
-📝 상세 설명:
+상세 설명:
 ${formData.details}
 
 ━━━━━━━━━━━━━━━━━━━━
@@ -66,62 +66,78 @@ ${formData.details}
 감사합니다.`;
 
     try {
-      // 클립보드에 메시지 복사
-      await navigator.clipboard.writeText(message);
-      
-      // 카카오톡 채널 채팅으로 이동
-      const kakaoChatLink = 'http://pf.kakao.com/_BuDxon/chat';
-      
-      // 카카오톡 채널 채팅으로 새 창 열기
-      window.open(kakaoChatLink, '_blank');
+      // FormSubmit을 사용하여 이메일 직접 발송
+      const formDataToSend = new FormData();
+      formDataToSend.append('email', 'glad64@naver.com');
+      formDataToSend.append('subject', '[원복프로] 견적 신청');
+      formDataToSend.append('message', emailBody);
+      formDataToSend.append('_captcha', 'false');
+      formDataToSend.append('_template', 'box');
+      formDataToSend.append('_autoresponse', `안녕하세요 ${formData.name}님,\n\n견적 신청이 정상적으로 접수되었습니다.\n빠른 시일 내에 연락드리겠습니다.\n\n감사합니다.\n원복프로`);
 
-      // 성공 메시지 표시
-      alert('견적 신청 내용이 클립보드에 복사되었습니다.\n카카오톡 채널로 이동하여 붙여넣기 해주세요.');
-      
-      // 폼 초기화
-      setFormData({
-        name: '',
-        address: '',
-        phone1: '',
-        phone2: '',
-        phone3: '',
-        email: '',
-        industry: '',
-        constructionDate: '',
-        budget: '',
-        visitDate: '',
-        details: '',
-        agree: false
+      const response = await fetch('https://formsubmit.co/ajax/glad64@naver.com', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
+
+      if (response.ok) {
+        const result = await response.json();
+        if (result.success) {
+          alert('견적 신청이 성공적으로 접수되었습니다.\n빠른 시일 내에 연락드리겠습니다.');
+          
+          // 폼 초기화
+          setFormData({
+            name: '',
+            address: '',
+            phone1: '',
+            phone2: '',
+            phone3: '',
+            email: '',
+            industry: '',
+            constructionDate: '',
+            budget: '',
+            visitDate: '',
+            details: '',
+            agree: false
+          });
+        } else {
+          throw new Error('이메일 발송 실패');
+        }
+      } else {
+        throw new Error('서버 오류');
+      }
     } catch (error) {
       console.error('Error:', error);
-      // 클립보드 복사 실패 시에도 카카오톡 채팅 링크는 열기
-      window.open('http://pf.kakao.com/_BuDxon/chat', '_blank');
-      
-      // 폴백: 텍스트 영역에 메시지 표시하여 수동 복사 가능하게
-      const fallbackMessage = `견적 신청 내용을 복사해서 카카오톡으로 보내주세요:\n\n${message}`;
-      alert(fallbackMessage);
+      alert('이메일 발송에 실패했습니다. 직접 glad64@naver.com으로 문의해주세요.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="무료견적" className="bg-primary py-16 md:py-24 lg:py-32 scroll-mt-20 relative overflow-hidden">
-      {/* Decorative Watermark */}
-      <div className="absolute top-1/2 right-[-15%] md:right-[-5%] -translate-y-1/2 opacity-[0.05] pointer-events-none">
-        <i className="fas fa-screwdriver-wrench text-[25rem] md:text-[40rem] text-white rotate-[-15deg]"></i>
+    <section id="무료견적" className="bg-primary py-32 md:py-40 lg:py-48 scroll-mt-20 relative overflow-hidden min-h-[80vh] flex items-center">
+      {/* Logo Background */}
+      <div className="absolute top-1/2 right-[-15%] md:right-[-5%] -translate-y-1/2 opacity-[0.12] pointer-events-none">
+        <img 
+          src="/imges/main/pa_logo.png.png" 
+          alt="원복프로 로고" 
+          className="w-[25rem] h-auto md:w-[40rem] rotate-[-15deg]"
+          style={{ filter: 'brightness(0) invert(1)' }}
+        />
       </div>
 
-      <div className="container mx-auto px-5 md:px-6 relative z-10 max-w-full overflow-hidden">
+      <div className="container mx-auto px-5 md:px-6 relative z-10 max-w-full overflow-hidden w-full max-w-[90%]">
         {/* Section Header: Responsive Typography */}
         <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16 lg:mb-20 text-white">
-          <p className="text-sm md:text-base font-bold mb-2 md:mb-4 opacity-90">막막한 원상복구</p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6 tracking-tighter">
+          <p className="text-base md:text-lg font-bold mb-2 md:mb-4 text-white">막막한 원상복구</p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 md:mb-6 tracking-tighter text-white">
             [ 원복 프로가 함께합니다. ]
           </h2>
           <div className="w-10 md:w-12 h-1 bg-white/30 mx-auto mb-4 md:mb-6"></div>
-          <p className="text-white/80 font-medium text-base md:text-lg leading-relaxed">
+          <p className="text-white font-medium text-lg md:text-xl leading-relaxed">
             철거, 복구, 리모델링 <br className="md:hidden" />
             공간 복원의 모든 해답을 알려드립니다.
           </p>
@@ -390,8 +406,8 @@ ${formData.details}
                       </>
                     ) : (
                       <>
-                        카카오톡으로 상담 신청하기
-                        <i className="fas fa-comment text-[10px] md:text-sm opacity-60 md:group-hover:translate-x-1 md:group-hover:-translate-y-1 transition-transform duration-200"></i>
+                        문의하기
+                        <i className="fas fa-envelope text-[10px] md:text-sm opacity-60 md:group-hover:translate-x-1 md:group-hover:-translate-y-1 transition-transform duration-200"></i>
                       </>
                     )}
                   </span>

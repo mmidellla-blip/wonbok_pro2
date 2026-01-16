@@ -16,16 +16,16 @@
        ============================================ */
     
     /* Primary Palette - 신뢰감 & 안정감 */
-    --color-primary-50: #E6F7F5;
-    --color-primary-100: #B3E8E0;
-    --color-primary-200: #80D9CC;
-    --color-primary-300: #4DCAB8;
-    --color-primary-400: #1ABBA4;
-    --color-primary-500: #008080;  /* 메인 컬러 */
-    --color-primary-600: #006666;  /* Hover */
-    --color-primary-700: #004D4D;  /* Active */
-    --color-primary-800: #003333;
-    --color-primary-900: #134E4A;   /* 가장 진한 톤 */
+    --color-primary-50: #E6EDF5;
+    --color-primary-100: #B3C9E0;
+    --color-primary-200: #80A5CC;
+    --color-primary-300: #4D81B8;
+    --color-primary-400: #1A5DA4;
+    --color-primary-500: #004891;  /* 메인 컬러 */
+    --color-primary-600: #003A73;  /* Hover */
+    --color-primary-700: #002C55;  /* Active */
+    --color-primary-800: #001E37;
+    --color-primary-900: #001020;   /* 가장 진한 톤 */
     
     /* Legacy Support */
     --color-primary: var(--color-primary-500);
@@ -171,8 +171,8 @@
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
     --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.2);
     --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.25);
-    --shadow-primary: 0 4px 12px rgba(0, 128, 128, 0.3);
-    --shadow-primary-lg: 0 8px 24px rgba(0, 128, 128, 0.4);
+    --shadow-primary: 0 4px 12px rgba(0, 72, 145, 0.3);
+    --shadow-primary-lg: 0 8px 24px rgba(0, 72, 145, 0.4);
     
     /* ============================================
        Transition - 부드러운 애니메이션
@@ -227,9 +227,8 @@
     overflow-x: hidden;
     /* 모바일 성능 최적화 */
     -webkit-overflow-scrolling: touch;
-    transform: translateZ(0);
+    /* transform과 perspective 제거 - fixed positioning을 위해 필요 */
     backface-visibility: hidden;
-    perspective: 1000px;
   }
   
   /* 모바일에서 스크롤 성능 최적화 */
@@ -434,7 +433,7 @@
   .input:focus {
     outline: none;
     border-color: var(--color-primary-500);
-    box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1);
+    box-shadow: 0 0 0 3px rgba(0, 72, 145, 0.1);
   }
   
   .input:disabled {

@@ -51,16 +51,26 @@ const Header: React.FC = () => {
           ? 'py-3 md:py-4 bg-white/95 backdrop-blur-md border-b border-primary-border/40 shadow-md' 
           : 'py-6 md:py-8 bg-transparent'
       }`}>
-        <div className="container mx-auto flex justify-between items-center">
+        {/* White Overlay for Logo Area (only when not scrolled) */}
+        {!isScrolled && (
+          <div 
+            className="absolute top-0 left-0 right-0 h-full pointer-events-none"
+            style={{
+              background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%)'
+            }}
+          ></div>
+        )}
+        <div className="container mx-auto flex justify-between items-center relative z-10">
           {/* Logo Area */}
           <div 
-            className="flex items-center gap-3 cursor-pointer group" 
+            className="flex items-center cursor-pointer group" 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="bg-primary w-9 h-9 md:w-10 md:h-10 flex items-center justify-center text-white font-black text-lg md:text-xl rounded-lg md:rounded-xl shadow-md group-hover:scale-105 transition-transform duration-200">W</div>
-            <span className={`text-xl md:text-2xl font-black tracking-[-0.02em] transition-colors duration-200 ${isScrolled ? 'text-neutral-strong' : 'text-white'}`}>
-              원복<span className={isScrolled ? 'text-primary' : 'text-white/80'}>프로</span>
-            </span>
+            <img 
+              src="/imges/main/logo.png.png" 
+              alt="원복프로 로고" 
+              className="h-14 w-auto md:h-16 lg:h-20 group-hover:scale-105 transition-transform duration-200"
+            />
           </div>
           
           <div className="flex items-center gap-12">
@@ -70,7 +80,7 @@ const Header: React.FC = () => {
                 <button 
                   key={item.name} 
                   onClick={() => handleScrollTo(item.href)}
-                  className={`text-sm md:text-[15px] font-semibold transition-all duration-200 hover:text-primary relative group ${
+                  className={`text-lg md:text-[19px] font-semibold transition-all duration-200 hover:text-primary relative group ${
                     isScrolled ? 'text-neutral-text/70' : 'text-white/80 hover:text-white'
                   }`}
                 >
@@ -82,7 +92,7 @@ const Header: React.FC = () => {
             
             <button 
               onClick={() => handleScrollTo('무료견적')}
-              className={`hidden sm:block px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-semibold text-sm md:text-[15px] transition-all duration-200 active:scale-[0.98] shadow-md hover:shadow-lg ${
+              className={`hidden sm:block px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-semibold text-lg md:text-[19px] transition-all duration-200 active:scale-[0.98] shadow-md hover:shadow-lg ${
                 isScrolled 
                   ? 'bg-primary text-white hover:bg-primary-strong' 
                   : 'bg-white text-primary hover:bg-primary-soft'
@@ -174,7 +184,7 @@ const Header: React.FC = () => {
                   minWidth: '180px',
                   transition: 'color 0.2s ease'
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#008080'}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#004891'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#171717'}
               >
                 {item.name}
@@ -186,23 +196,23 @@ const Header: React.FC = () => {
                 width: '100%',
                 maxWidth: '320px',
                 padding: '18px 24px',
-                backgroundColor: '#008080',
+                backgroundColor: '#004891',
                 color: '#ffffff',
                 fontSize: '18px',
                 fontWeight: 700,
                 borderRadius: '12px',
                 border: 'none',
                 cursor: 'pointer',
-                boxShadow: '0 10px 25px -5px rgba(0, 128, 128, 0.3)',
+                boxShadow: '0 10px 25px -5px rgba(0, 72, 145, 0.3)',
                 marginTop: '8px',
                 transition: 'background-color 0.2s ease, transform 0.1s ease'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#006666';
+                e.currentTarget.style.backgroundColor = '#003A73';
                 e.currentTarget.style.transform = 'scale(1.02)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#008080';
+                e.currentTarget.style.backgroundColor = '#004891';
                 e.currentTarget.style.transform = 'scale(1)';
               }}
             >

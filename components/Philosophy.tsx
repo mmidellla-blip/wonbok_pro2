@@ -2,34 +2,35 @@ import React from 'react';
 
 const Philosophy: React.FC = () => {
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden bg-white">
+    <section className="relative py-32 md:py-40 lg:py-48 overflow-hidden bg-white min-h-[80vh] flex items-center">
       {/* Background Grid: Subtle Architectural Feel */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.02]">
         <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-10 w-full max-w-[90%]">
         <div className="grid lg:grid-cols-12 gap-10 md:gap-16 items-center">
           
           {/* Left Side: Professional Headline */}
-          <div className="lg:col-span-5">
-            <div className="flex items-center gap-3 mb-6">
+          <div className="lg:col-span-5 text-center">
+            <div className="flex items-center justify-center gap-3 mb-6">
               <span className="h-0.5 w-6 bg-primary"></span>
-              <span className="text-primary font-black text-[10px] tracking-[0.3em] uppercase">Brand Philosophy</span>
+              <span className="text-primary font-black text-[11px] tracking-[0.3em] uppercase">Brand Philosophy</span>
             </div>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-neutral-strong tracking-tighter leading-tight mb-8 whitespace-nowrap lg:whitespace-normal">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-tight mb-8 whitespace-nowrap lg:whitespace-normal">
               <span className="text-neutral-strong/20 mr-1">[</span>
-              원복은 <span className="text-primary">설계입니다</span>
+              <span className="text-primary">원복은</span> <span className="text-neutral-strong">설계입니다</span>
               <span className="text-neutral-strong/20 ml-1">]</span>
             </h2>
             
-            <div className="space-y-4 border-l-2 border-primary/10 pl-6">
-              <p className="text-lg md:text-xl font-bold text-neutral-strong/80 tracking-tight leading-tight">
+            <div className="space-y-4 text-center relative pt-6">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-primary/20"></div>
+              <p className="text-xl md:text-2xl font-bold text-neutral-strong/80 tracking-tight leading-tight">
                 철거부터 원상까지, <br />
                 하나의 기준을 세웁니다.
               </p>
-              <p className="text-base md:text-lg font-medium text-primary/70 tracking-tight">
+              <p className="text-lg md:text-xl font-medium text-primary/70 tracking-tight">
                 복구 전문 플랫폼 원복프로
               </p>
             </div>
@@ -37,19 +38,19 @@ const Philosophy: React.FC = () => {
 
           {/* Right Side: High-Contrast Definition Card */}
           <div className="lg:col-span-7">
-            <div className="relative p-8 md:p-14 bg-neutral-strong text-white rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl group">
+            <div className="relative p-8 md:p-14 text-white rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl group" style={{ backgroundColor: '#002244' }}>
               {/* Subtle Decorative Detail */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-[4rem] -mr-12 -mt-12 transition-all group-hover:bg-primary/20"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 rounded-bl-[4rem] -mr-12 -mt-12 transition-all" style={{ backgroundColor: 'rgba(0, 110, 221, 0.1)' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 110, 221, 0.2)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 110, 221, 0.1)'}></div>
               
               <div className="relative z-10 space-y-10">
                 <div className="space-y-6">
-                  <h3 className="text-xl md:text-2xl font-black leading-tight tracking-tighter">
+                  <h3 className="text-2xl md:text-3xl font-black leading-tight tracking-tighter text-white">
                     원상복구는 <br />
-                    <span className="text-primary-soft">부수고 덮는 일이 아닙니다.</span>
+                    <span className="text-white">부수고 덮는 일이 아닙니다.</span>
                   </h3>
                   
                   <div className="space-y-4">
-                    <p className="text-base md:text-lg leading-relaxed font-bold text-white/90 tracking-tight">
+                    <p className="text-lg md:text-xl leading-relaxed font-bold text-white/90 tracking-tight">
                       임대 조건을 이해하고, <br />
                       공간의 구조를 읽고, <br />
                       마감 기준까지 계산해야 <br />
@@ -59,7 +60,7 @@ const Philosophy: React.FC = () => {
                 </div>
 
                 <div className="pt-8 border-t border-white/10">
-                  <p className="text-sm md:text-base leading-relaxed font-medium text-white/50 whitespace-pre-line">
+                  <p className="text-base md:text-lg leading-relaxed font-medium text-white/50 whitespace-pre-line">
                     원복 프로는 법인 인테리어 전문 업체로서, <br />
                     설계 기준에 맞춘 복구 시공으로 <br />
                     끝까지 책임지는 결과를 만듭니다.

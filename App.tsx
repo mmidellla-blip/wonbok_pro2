@@ -38,28 +38,29 @@ function App() {
   return (
     <div className="min-h-screen bg-neutral-bg selection:bg-primary selection:text-white">
       <Header />
-      <main>
+      <QuickMenu />
+      <main className="relative">
         <Hero />
         
         {/* Value Proposition */}
-        <section id="소개" className="py-16 md:py-20 lg:py-24 bg-white scroll-mt-20">
-          <div className="container mx-auto px-6 md:px-8 lg:px-12">
+        <section id="소개" className="py-32 md:py-40 lg:py-48 bg-white scroll-mt-20 min-h-[80vh] flex items-center">
+          <div className="container mx-auto px-6 md:px-8 lg:px-12 w-full max-w-[90%]">
             <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
-              <span className="text-primary font-semibold text-[0.6875rem] mb-3 md:mb-4 block tracking-[0.05em] uppercase">Premium Solution</span>
+              <span className="text-primary font-semibold text-base mb-4 md:mb-6 block tracking-[0.05em] uppercase">Premium Solution</span>
               
-              <h2 className="text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] font-black text-neutral-strong mb-6 md:mb-8 tracking-[-0.03em] leading-[1.2]">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-neutral-strong mb-8 md:mb-10 tracking-[-0.03em] leading-[1.2]">
                 공간 구조를 읽는 전문가가 완성하는 <br />
                 <span className="text-primary mt-2 md:mt-3 block">
-                  [ <span className="text-neutral-strong">원복·철거·리모델링 통합 솔루션</span> ]
+                  [ <span className="text-primary">원복·철거·리모델링 통합 솔루션</span> ]
                 </span>
               </h2>
               
               <div className="max-w-3xl mx-auto">
-                <p className="text-[0.9375rem] md:text-base text-neutral-text font-medium leading-relaxed mb-4 md:mb-6">
+                <p className="text-lg md:text-xl text-neutral-text font-medium leading-relaxed mb-6 md:mb-8">
                   원복 프로는 다년간 인테리어 건축 현장을 직접 운영해온 <br className="hidden md:block" />
                   <span className="text-primary font-semibold">㈜인주씨앤아이</span> 만의 원상복구 브랜드입니다.
                 </p>
-                <p className="text-[0.9375rem] md:text-base text-neutral-text/70 font-medium leading-relaxed">
+                <p className="text-lg md:text-xl text-neutral-text/70 font-medium leading-relaxed">
                   단순 철거를 넘어 원복 기준 설계부터 시공, 마감까지 <br className="hidden md:block" />
                   공정을 하나로 묶어 책임지는 시스템으로 운영됩니다.
                 </p>
@@ -82,12 +83,12 @@ function App() {
 
         <Services />
         
-        <section id="포트폴리오" className="bg-white py-16 md:py-20 lg:py-24 scroll-mt-20 border-y border-primary-border/30">
-          <div className="container mx-auto px-6 md:px-8 lg:px-12">
+        <section id="포트폴리오" className="bg-white py-32 md:py-40 lg:py-48 scroll-mt-20 border-y border-primary-border/30 min-h-[80vh] flex items-center">
+          <div className="container mx-auto px-6 md:px-8 lg:px-12 w-full max-w-[90%]">
              <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-                <span className="text-primary font-semibold text-[0.6875rem] mb-3 md:mb-4 block tracking-[0.05em] uppercase">Successful Projects</span>
-                <h2 className="text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] font-black text-neutral-strong mb-4 md:mb-6 tracking-[-0.03em]">시공 사례</h2>
-                <p className="text-neutral-text/70 font-semibold text-[0.9375rem] md:text-base mb-6 md:mb-8">원복의 차이는 현장에서 드러납니다.</p>
+                <span className="text-primary font-semibold text-base mb-4 md:mb-6 block tracking-[0.05em] uppercase">Successful Projects</span>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-neutral-strong mb-6 md:mb-8 tracking-[-0.03em]">시공 사례</h2>
+                <p className="text-neutral-text/70 font-semibold text-lg md:text-xl mb-8 md:mb-10">원복의 차이는 현장에서 드러납니다.</p>
                 <div className="w-12 md:w-16 h-[1px] bg-primary/20 mx-auto"></div>
              </div>
              <div className="max-w-6xl mx-auto">
@@ -101,7 +102,6 @@ function App() {
         <Philosophy />
         <InquiryForm />
       </main>
-      <QuickMenu />
       <Footer />
     </div>
   );

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 const QuickMenu: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,7 +23,7 @@ const QuickMenu: React.FC = () => {
       name: '카톡상담',
       img: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg',
       color: 'bg-[#FEE500]',
-      link: 'http://pf.kakao.com/_BuDxon/chat', 
+      link: 'http://pf.kakao.com/_duBWn/chat', 
     },
     {
       name: '블로그',
@@ -40,8 +41,16 @@ const QuickMenu: React.FC = () => {
 
   ];
 
-  return (
-    <div className="fixed bottom-8 right-8 z-[50] flex flex-col gap-4 items-end">
+  const menuContent = (
+    <div 
+      className="flex flex-col gap-4 items-end"
+      style={{
+        position: 'fixed',
+        bottom: '2rem',
+        right: '2rem',
+        zIndex: 9999
+      }}
+    >
       {menus.map((menu, idx) => {
         const Content = (
           <>
@@ -85,6 +94,12 @@ const QuickMenu: React.FC = () => {
       )}
     </div>
   );
+
+  // React Portal을 사용하여 body 직계 자식으로 렌더링
+  // transform이 적용된 상위 요소의 영향을 받지 않도록
+  return typeof window !== 'undefined' 
+    ? createPortal(menuContent, document.body)
+    : menuContent;
 };
 
 export default QuickMenu;
