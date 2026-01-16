@@ -64,7 +64,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="사업분야" className="py-32 md:py-40 lg:py-48 bg-neutral-surface scroll-mt-20 min-h-[80vh] flex items-center">
+    <section id="사업분야" className="py-[40vh] bg-neutral-surface scroll-mt-20 min-h-[80vh] flex items-center">
       <div className="container mx-auto px-6 md:px-8 lg:px-12 w-full max-w-[90%]">
         <div className="grid lg:grid-cols-12 gap-8 md:gap-10 lg:gap-12 items-start">
           <div className="lg:col-span-5 lg:sticky lg:top-28">

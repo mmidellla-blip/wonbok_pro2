@@ -118,7 +118,7 @@ const Reviews: React.FC = () => {
   const extendedReviews = [...allReviews, ...allReviews, ...allReviews];
 
   return (
-    <section id="후기" className="py-24 md:py-40 bg-white overflow-hidden scroll-mt-20">
+    <section id="후기" className="py-[40vh] bg-white overflow-hidden scroll-mt-20">
       <div className="container mx-auto px-6 mb-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-primary font-black text-[10px] mb-6 block tracking-[0.4em] uppercase">Testimonials</span>

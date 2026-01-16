@@ -68,14 +68,14 @@ ${formData.details}
     try {
       // FormSubmit을 사용하여 이메일 직접 발송
       const formDataToSend = new FormData();
-      formDataToSend.append('email', 'glad64@naver.com');
+      formDataToSend.append('email', 'injucni15@naver.com');
       formDataToSend.append('subject', '[원복프로] 견적 신청');
       formDataToSend.append('message', emailBody);
       formDataToSend.append('_captcha', 'false');
       formDataToSend.append('_template', 'box');
       formDataToSend.append('_autoresponse', `안녕하세요 ${formData.name}님,\n\n견적 신청이 정상적으로 접수되었습니다.\n빠른 시일 내에 연락드리겠습니다.\n\n감사합니다.\n원복프로`);
 
-      const response = await fetch('https://formsubmit.co/ajax/glad64@naver.com', {
+      const response = await fetch('https://formsubmit.co/ajax/injucni15@naver.com', {
         method: 'POST',
         body: formDataToSend,
         headers: {
@@ -111,14 +111,14 @@ ${formData.details}
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('이메일 발송에 실패했습니다. 직접 glad64@naver.com으로 문의해주세요.');
+      alert('이메일 발송에 실패했습니다. 직접 injucni15@naver.com으로 문의해주세요.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="무료견적" className="bg-primary py-32 md:py-40 lg:py-48 scroll-mt-20 relative overflow-hidden min-h-[80vh] flex items-center">
+    <section id="무료견적" className="bg-primary py-[40vh] scroll-mt-20 relative overflow-hidden min-h-[80vh] flex items-center">
       {/* Logo Background */}
       <div className="absolute top-1/2 right-[-15%] md:right-[-5%] -translate-y-1/2 opacity-[0.12] pointer-events-none">
         <img 

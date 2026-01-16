@@ -43,7 +43,7 @@ function App() {
         <Hero />
         
         {/* Value Proposition */}
-        <section id="소개" className="py-32 md:py-40 lg:py-48 bg-white scroll-mt-20 min-h-[80vh] flex items-center">
+        <section id="소개" className="py-[40vh] bg-white scroll-mt-20 min-h-[80vh] flex items-center">
           <div className="container mx-auto px-6 md:px-8 lg:px-12 w-full max-w-[90%]">
             <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
               <span className="text-primary font-semibold text-base mb-4 md:mb-6 block tracking-[0.05em] uppercase">Premium Solution</span>
@@ -83,7 +83,7 @@ function App() {
 
         <Services />
         
-        <section id="포트폴리오" className="bg-white py-32 md:py-40 lg:py-48 scroll-mt-20 border-y border-primary-border/30 min-h-[80vh] flex items-center">
+        <section id="포트폴리오" className="bg-white py-[40vh] scroll-mt-20 border-y border-primary-border/30 min-h-[80vh] flex items-center">
           <div className="container mx-auto px-6 md:px-8 lg:px-12 w-full max-w-[90%]">
              <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
                 <span className="text-primary font-semibold text-base mb-4 md:mb-6 block tracking-[0.05em] uppercase">Successful Projects</span>

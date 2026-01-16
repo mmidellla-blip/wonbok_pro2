@@ -2,7 +2,7 @@ import React from 'react';
 
 const Philosophy: React.FC = () => {
   return (
-    <section className="relative py-32 md:py-40 lg:py-48 overflow-hidden bg-white min-h-[80vh] flex items-center">
+    <section className="relative py-[40vh] overflow-hidden bg-white min-h-[80vh] flex items-center">
       {/* Background Grid: Subtle Architectural Feel */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.02]">
         <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
@@ -15,10 +15,10 @@ const Philosophy: React.FC = () => {
           <div className="lg:col-span-5 text-center">
             <div className="flex items-center justify-center gap-3 mb-6">
               <span className="h-0.5 w-6 bg-primary"></span>
-              <span className="text-primary font-black text-[11px] tracking-[0.3em] uppercase">Brand Philosophy</span>
+              <span className="text-primary font-black text-[12.65px] tracking-[0.3em] uppercase">Brand Philosophy</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-tight mb-8 whitespace-nowrap lg:whitespace-normal">
+            <h2 className="text-[2.875rem] md:text-[3.45rem] lg:text-[4.14rem] font-black tracking-tighter leading-tight mb-8 whitespace-nowrap lg:whitespace-normal">
               <span className="text-neutral-strong/20 mr-1">[</span>
               <span className="text-primary">원복은</span> <span className="text-neutral-strong">설계입니다</span>
               <span className="text-neutral-strong/20 ml-1">]</span>
@@ -26,7 +26,7 @@ const Philosophy: React.FC = () => {
             
             <div className="space-y-4 text-center relative pt-6">
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-primary/20"></div>
-              <p className="text-xl md:text-2xl font-bold text-neutral-strong/80 tracking-tight leading-tight">
+              <p className="text-lg md:text-xl font-bold text-neutral-strong/80 tracking-tight leading-tight">
                 철거부터 원상까지, <br />
                 하나의 기준을 세웁니다.
               </p>
@@ -44,8 +44,8 @@ const Philosophy: React.FC = () => {
               
               <div className="relative z-10 space-y-10">
                 <div className="space-y-6">
-                  <h3 className="text-2xl md:text-3xl font-black leading-tight tracking-tighter text-white">
-                    원상복구는 <br />
+                  <h3 className="text-lg md:text-xl font-black leading-tight tracking-tighter">
+                    <span className="text-primary">원상복구는</span> <br />
                     <span className="text-white">부수고 덮는 일이 아닙니다.</span>
                   </h3>
                   
@@ -60,7 +60,7 @@ const Philosophy: React.FC = () => {
                 </div>
 
                 <div className="pt-8 border-t border-white/10">
-                  <p className="text-base md:text-lg leading-relaxed font-medium text-white/50 whitespace-pre-line">
+                  <p className="text-lg md:text-xl leading-relaxed font-medium text-white/50 whitespace-pre-line">
                     원복 프로는 법인 인테리어 전문 업체로서, <br />
                     설계 기준에 맞춘 복구 시공으로 <br />
                     끝까지 책임지는 결과를 만듭니다.
