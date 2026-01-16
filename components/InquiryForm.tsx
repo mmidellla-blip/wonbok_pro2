@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 
 const InquiryForm: React.FC = () => {
+  // 오늘 날짜를 YYYY-MM-DD 형식으로 가져오기
+  const today = new Date().toISOString().split('T')[0];
+  
   const [formData, setFormData] = useState({
     name: '',
     address: '',
@@ -311,13 +314,14 @@ ${formData.details}
                     <label className="text-[10px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       공사 희망일 <span className="text-red-500">*</span>
                     </label>
-                    <input 
-                      type="date" 
+                    <input
+                      type="date"
                       name="constructionDate"
                       value={formData.constructionDate}
                       onChange={handleChange}
+                      min={today}
                       required
-                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-[border-color,background-color] duration-200 shadow-sm box-border" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-[border-color,background-color] duration-200 shadow-sm box-border"
                     />
                   </div>
                 </div>
@@ -342,13 +346,14 @@ ${formData.details}
                     <label className="text-[10px] md:text-[12px] font-black text-neutral-strong/60 uppercase tracking-widest flex items-center gap-1.5 pl-1">
                       방문 견적 희망일 <span className="text-red-500">*</span>
                     </label>
-                    <input 
-                      type="date" 
+                    <input
+                      type="date"
                       name="visitDate"
                       value={formData.visitDate}
                       onChange={handleChange}
+                      min={today}
                       required
-                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-[border-color,background-color] duration-200 shadow-sm box-border" 
+                      className="w-full max-w-full bg-neutral-surface/50 border-2 border-transparent px-4 py-2.5 md:px-5 md:py-4 h-[44px] md:h-[56px] focus:outline-none focus:border-primary/30 focus:bg-white rounded-lg md:rounded-xl text-[13px] md:text-[15px] font-bold transition-[border-color,background-color] duration-200 shadow-sm box-border"
                     />
                   </div>
                 </div>
